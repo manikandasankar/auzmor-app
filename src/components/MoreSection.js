@@ -4,7 +4,7 @@ const MoreSection = () => (
   <div className="related-player-shots">
     <div className="follow-prompt" />
     <h3 className="meta-head">
-      <a href="/RonDesignLab">
+      <a href="https://dribbble.com/RonDesignLab" rel="noopener noreferrer" target="_blank">
       More from Ron Design
       </a>
     </h3>

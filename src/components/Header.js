@@ -16,7 +16,7 @@ const Header = () => (
           </form>
         </li>
         <li id="t-signin">
-          <a href="https://dribbble.com/session/new?return_to=%2Fshots%2F3978177-Animation-Cryptocurrency-Marketplace-Light">
+          <a href="https://dribbble.com/session/new?return_to=%2Fshots%2F3978177-Animation-Cryptocurrency-Marketplace-Light" rel="noopener noreferrer" target="_blank">
             <span>Sign in</span>
           </a>
         </li>

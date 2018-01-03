@@ -62,7 +62,7 @@ class CommentsList extends Component {
                   </div>
                   {key.likesCount &&
                     <span className="comment-meta-likes">
-                      <a className="likes-list" href="/comments/6750795/likes">{key.likesCount}</a><span className="hide">likes</span>
+                      <a className="likes-list" href="https://dribbble.com/comments/6750795/likes">{key.likesCount}</a><span className="hide">likes</span>
                     </span>
                   }
                   <p className="comment-meta">

@@ -14,6 +14,9 @@ const Root = (props) => {
   );
 };
 
+/**
+ * @description Expected props definition for this component.
+ */
 Root.propTypes = {
   history: PropTypes.object.isRequired,
   store: PropTypes.object.isRequired,

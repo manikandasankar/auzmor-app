@@ -33,7 +33,7 @@ export default class HomeContainer extends React.Component {
           <div id="content" role="main">
             <div className="non-overlay group">
               <div className="slat-header user ">
-                <a className="url hoverable" href="/RonDesignLab" title="Ron Design">
+                <a className="url hoverable" href="https://dribbble.com/RonDesignLab" rel="noopener noreferrer" target="_blank" title="Ron Design">
                   <picture>
                     <source media="(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)" srcSet="https://cdn.dribbble.com/users/834691/avatars/normal/9006fd85d117c7d3bc8a9e949dc01fcb.png?1430481893" />
                     <source srcSet="https://cdn.dribbble.com/users/834691/avatars/small/9006fd85d117c7d3bc8a9e949dc01fcb.png?1430481893" />
@@ -43,11 +43,11 @@ export default class HomeContainer extends React.Component {
                 <h1>Animation Cryptocurrency Marketplace (Light)</h1>
                 <h2 className="shot-byline">
                   <span className="attribution is-team">
-                    <span className="shot-byline-user">by <a className="url hoverable" href="/RonDesignLab">Ron Design</a>
+                    <span className="shot-byline-user">by
+                      <a className="url hoverable" href="https://dribbble.com/RonDesignLab" rel="noopener noreferrer" target="_blank">Ron Design</a>
                     </span>
                   </span>
-                  <span className="shot-byline-date">on <a href="/shots?date=2017-11-28">Nov 28, 2017</a>
-                  </span>
+                  <span className="shot-byline-date">on Nov 28, 2017</span>
                 </h2>
               </div>
               <div
