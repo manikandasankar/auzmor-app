@@ -68,11 +68,11 @@ class ShotStats extends Component {
     return (
       <ul className="shot-stats">
         <li>
-          <a className="stats-action like-shot" href="https://dribbble.com/signup/new" title="Like this shot">
+          <a className="stats-action like-shot" href="https://dribbble.com/signup/new" rel="noopener noreferrer" target="_blank" title="Like this shot">
             <img alt="Icon shotstat like" src="https://cdn.dribbble.com/assets/icon-shotstat-like-6a1e9e9db48b9b788639f05a658379b7bb027a75d256127f812bf9392664396f.png" />
             <span className="stats-label">Like?</span>
           </a>
-          <a className="likes-count stats-num" href="https://dribbble.com/shots/3978177-Animation-Cryptocurrency-Marketplace-Light/fans">
+          <a className="likes-count stats-num" href="https://dribbble.com/shots/3978177-Animation-Cryptocurrency-Marketplace-Light/fans" rel="noopener noreferrer" target="_blank">
           238
           <span className="stats-num-label">
           likes
