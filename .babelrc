@@ -1,0 +1,35 @@
+{
+  "presets": [
+    "es2015",
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "babel-plugin-webpack-alias",
+          {
+            "config": "./webpack.config.js"
+          }
+        ],
+        /** transform-class-properties:
+        * Arrow functions that are members of a class are not included in es6.
+        * In webpack2, arrow function is not supported until we have to include transform-class-properties plugin.
+        * transform-object-assign: 
+        * IE10 doesn't have Object.assign API natively.
+        * So it not supported object.assign until we have to include transform-object-assign plugin.
+        */
+        [
+          "transform-class-properties",
+          "transform-object-assign",
+          {
+            "spec": true
+          }
+        ]
+      ]
+    }
+  }
+}
