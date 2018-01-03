@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
-import RootReducer from '../store/reducers/Root-Reducer';
+import RootReducer from '../store/reducers/RootReducer';
 
 /* It creates a Redux store that holds the complete state of app.
  * Redux Thunk middleware allows to make async actions.

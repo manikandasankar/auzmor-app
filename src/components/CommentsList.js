@@ -1,45 +1,93 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import className from 'classnames';
+import { getCommentsList } from '../store/actions/CommentsList';
 
-const CommentsList = () => (
-  <div id="comments-section">
-    <div id="comments-section">
-      <h2 className="count section ">
-        7 Responses
-      </h2>
-      <div className="comments-sort">
-        <a className="oldest selected" href="">oldest</a>
-        <a className="newest " href="">newest</a>
-        <a className="liked " href="">liked</a>
-      </div>
-      <ol className="comments" id="comments">
-        <li className="response comment group" id="comment-6750795">
-          <h2>
-            <a className="url hoverable" href="">
-              <img alt="" className="photo" src="https://cdn.dribbble.com/users/1256118/avatars/small/2c8e4297c8b557a67df3e57e2c908d8c.jpg?1505983286" />
-              Gray
-            </a>
+class CommentsList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isOldestSelected: '',
+      isLatestSelected: 'selected',
+      islikedSelected: '',
+    };
+  }
+
+  componentDidMount() {
+    this.props.getCommentsList('latest');
+  }
+
+  /**
+   * @description Function to filter comments based on type
+   * @param {object} - e - event for the respective action performed.
+   * @param {string} - type - selected type
+   */
+  sortComments = (e, type) => {
+    e.preventDefault();
+    this.setState({
+      isOldestSelected: type === 'oldest' ? 'selected' : '',
+      isLatestSelected: type === 'latest' ? 'selected' : '',
+      islikedSelected: type === 'liked' ? 'selected' : '',
+    });
+    this.props.getCommentsList(type);
+  }
+
+  render() {
+    const { commentsList } = this.props;
+    const { isOldestSelected, isLatestSelected, islikedSelected } = this.state;
+    return (
+      <div id="comments-section">
+        <div id="comments-section">
+          <h2 className="count section ">
+            7 Responses
           </h2>
-          <div className="comment-body">
-            <p>Well done! Come to check my works if you want ✌🏻</p>
+          <div className="comments-sort">
+            <a className={className(`oldest ${isOldestSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'oldest'); }}>oldest</a>
+            <a className={className(`newest ${isLatestSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'latest'); }}>newest</a>
+            <a className={className(`liked ${islikedSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'liked'); }}>liked</a>
           </div>
-          <span className="comment-meta-likes">
-            <a className="likes-list" href="/comments/6750795/likes">1</a><span className="hide">likes</span>
-          </span>
-          <p className="comment-meta">
-            <a className="posted" href="">about 1 month ago</a>
-          </p>
-        </li>
-      </ol>
-    </div>
-  </div>
-);
+          <ol className="comments" id="comments">
+            {
+              commentsList.map((key, index) => (
+                <li className="response comment group" key={index}>
+                  <h2>
+                    <a className="url hoverable" href="">
+                      <img alt="" className="photo" src={key.url} />
+                      {key.userName}
+                    </a>
+                  </h2>
+                  <div className="comment-body">
+                    <p>{key.comment}</p>
+                  </div>
+                  {key.likesCount &&
+                    <span className="comment-meta-likes">
+                      <a className="likes-list" href="/comments/6750795/likes">{key.likesCount}</a><span className="hide">likes</span>
+                    </span>
+                  }
+                  <p className="comment-meta">
+                    <a className="posted" href="">{key.postedOn}</a>
+                  </p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    );
+  }
+}
 
-CommentsList.propTypes = {
-  // Todo: Properties
-};
+function mapStateToProps(state) {
+  return {
+    commentsList: state.comments.commentsList,
+  };
+}
 
-CommentsList.defaultProps = {
-  // Todo: default Properties
-};
+function mapDispatchToProps(dispatch) {
+  return {
+    getCommentsList: bindActionCreators(getCommentsList, dispatch),
+  };
+}
 
-export default CommentsList;
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsList);

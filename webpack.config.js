@@ -26,6 +26,7 @@ var config = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
+            envConfig$: path.join(paths.appSrc, 'config', appEnv + '.js')
         }
     },
     module: {
@@ -151,7 +152,11 @@ var config = {
         }),
 
         // The copy-webpack-plugin that copies individual files or entire directories to the build directory.
-        new CopyWebpackPlugin([])
+        new CopyWebpackPlugin([
+            { from: './src/__mocks__/commentsList-latest.json', to: 'latest.json' },
+            { from: './src/__mocks__/commentsList-liked.json', to: 'liked.json' },
+            { from: './src/__mocks__/commentsList-oldest.json', to: 'oldest.json' },
+        ])
     ]
 };
 
