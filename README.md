@@ -1,0 +1,2 @@
+# auzmor-app
+React page
