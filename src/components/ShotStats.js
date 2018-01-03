@@ -83,7 +83,8 @@ class ShotStats extends Component {
           <a
             className={className('stats-action share-shot', {
               expanded: showSocialShareSheet,
-            })} href="" onClick={(e) => { this.showOrHideSocialShareSection(e); }}
+            })} href="" id="shareButton"
+            onClick={(e) => { this.showOrHideSocialShareSection(e); }}
           >
             <img alt="Icon shotstat share" src="https://cdn.dribbble.com/assets/icon-shotstat-share-128ae71c26985fc7325ac5362aba434686f12fdfffa45ed874262a19f923b071.png" />
             <span className="stats-label">Share</span>

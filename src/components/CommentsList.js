@@ -40,12 +40,12 @@ class CommentsList extends Component {
       <div id="comments-section">
         <div id="comments-section">
           <h2 className="count section ">
-            7 Responses
+            {commentsList.length} Responses
           </h2>
           <div className="comments-sort">
-            <a className={className(`oldest ${isOldestSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'oldest'); }}>oldest</a>
-            <a className={className(`newest ${isLatestSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'latest'); }}>newest</a>
-            <a className={className(`liked ${islikedSelected}`)} href="" onClick={(e) => { this.sortComments(e, 'liked'); }}>liked</a>
+            <a className={className(`oldest ${isOldestSelected}`)} href="" id="oldest" onClick={(e) => { this.sortComments(e, 'oldest'); }}>oldest</a>
+            <a className={className(`newest ${isLatestSelected}`)} href="" id="newest" onClick={(e) => { this.sortComments(e, 'latest'); }}>newest</a>
+            <a className={className(`liked ${islikedSelected}`)} href="" id="liked" onClick={(e) => { this.sortComments(e, 'liked'); }}>liked</a>
           </div>
           <ol className="comments" id="comments">
             {
@@ -78,12 +78,18 @@ class CommentsList extends Component {
   }
 }
 
+/**
+ * @description Map the state objects (as props) that are required to render the details in the UI
+ */
 function mapStateToProps(state) {
   return {
     commentsList: state.comments.commentsList,
   };
 }
 
+/**
+ * @description Map the state objects (as props) that are required to render the details in the UI
+ */
 function mapDispatchToProps(dispatch) {
   return {
     getCommentsList: bindActionCreators(getCommentsList, dispatch),

@@ -59,7 +59,7 @@ export default class HomeContainer extends React.Component {
                   <div className="single group">
                     <div className="single-grid">
                       <div className="single-img">
-                        <a href="" onClick={(e) => { this.showOrHideZoomableImage(e); }}>
+                        <a href="" id="zoomableImageSection" onClick={(e) => { this.showOrHideZoomableImage(e); }}>
                           <img alt="Crypto dashboard" src="https://cdn.dribbble.com/users/834691/screenshots/3978177/crypto_dashboard.gif" />
                         </a>
                       </div>
